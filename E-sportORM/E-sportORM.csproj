@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DE8A8763-6F37-4A23-99B5-58287873B1C6}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>E_sportORM</RootNamespace>
+    <AssemblyName>E-sportORM</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="database\Detail_Hrace.cs" />
+    <Compile Include="database\Detail_Tymu.cs" />
+    <Compile Include="database\Hala_Propadliku.cs" />
+    <Compile Include="database\Hrac.cs" />
+    <Compile Include="database\Liga_Hracu.cs" />
+    <Compile Include="database\Liga_Tymu.cs" />
+    <Compile Include="database\mssql\Database.cs" />
+    <Compile Include="database\mssql\DetailHraceTable.cs" />
+    <Compile Include="database\mssql\DetailTymuTable.cs" />
+    <Compile Include="database\mssql\HalaPropadlikuTable.cs" />
+    <Compile Include="database\mssql\HracTable.cs" />
+    <Compile Include="database\mssql\LigaHracuTable.cs" />
+    <Compile Include="database\mssql\LigaTymuTable.cs" />
+    <Compile Include="database\mssql\NastaveniHraceTable.cs" />
+    <Compile Include="database\mssql\RankTable.cs" />
+    <Compile Include="database\mssql\TymHracTable.cs" />
+    <Compile Include="database\mssql\TymTable.cs" />
+    <Compile Include="database\mssql\ZapasyHracuTable.cs" />
+    <Compile Include="database\mssql\ZapasyTymuTable.cs" />
+    <Compile Include="database\Nastaveni_Hrace.cs" />
+    <Compile Include="database\Rank.cs" />
+    <Compile Include="database\TymHrac.cs" />
+    <Compile Include="database\Tym.cs" />
+    <Compile Include="database\ZapasyHracu.cs" />
+    <Compile Include="database\Zapasy_Tymu.cs" />
+    <Compile Include="Forms\Liga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Liga.Designer.cs">
+      <DependentUpon>Liga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Registrace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Registrace.Designer.cs">
+      <DependentUpon>Registrace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\Liga.resx">
+      <DependentUpon>Liga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Registrace.resx">
+      <DependentUpon>Registrace.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="funkce.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

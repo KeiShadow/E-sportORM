@@ -1,0 +1,264 @@
+﻿  //Inserty
+            /*Vytvoření ranku*/
+            RankTable.Insert("Silver", 150);
+            RankTable.Insert("Gold", 200);
+            RankTable.Insert("Gold2", 450);
+            RankTable.Insert("Supreme", 1000);
+
+            // Aktualizace jména ranku
+            Console.WriteLine("Aktualizace ranku");
+            RankTable.ChangeName("Silver", "Silveríno");
+
+            /*Registrace hráče*/
+            string reg1, reg2;
+            reg1 = "Keiko";
+            reg2 = "Lala";
+
+            HracTable.Registration(reg1, "1234567", "email@email.cz");
+            Console.WriteLine("Vytvoření hráče "+reg1+" bylo úspěšné");
+            HracTable.Registration(reg2, "1234567", "email@email.cz");
+            Console.WriteLine("Vytvoření hráče " + reg2 + " bylo úspěšné");
+
+
+            //Aktualizace udaju hráče
+            if (NastaveniHraceTable.Update(reg1, "Petr", "Noga", "Česká republika"))
+            {
+                Console.WriteLine("Nastaveni hrace probehlo uspesne.");
+            }
+            if (NastaveniHraceTable.Update(reg2, "Honza", "Osmančík", "Česká republika"))
+            {
+                Console.WriteLine("Nastaveni hrace probehlo uspesne.");
+            }
+
+            /*Aktualizace detailu hráče*/
+            Console.WriteLine("Aktualizace detailu hráče");
+            DetailHraceTable.Update(1,1,1,158,1);
+
+            DetailHraceTable.Update(2,1,0,150,0);
+            Console.WriteLine("");
+
+            /*Přiřazení rank hráči*/
+            if (DetailHraceTable.RankUP())
+            {
+                Console.WriteLine("RankUp probehl v pořádku.");
+            }
+            
+            /*Vytvoření týmu*/
+            Console.WriteLine("Vytvoření týmu");
+            TymTable.CreateTeam("Alfa", "Jsme nejlepší!");
+            TymTable.CreateTeam("Lalas", "Jsme Borci!");
+            Console.WriteLine("");
+
+            
+
+            
+            Console.WriteLine("");
+            /*Vytvoření ligy */
+            Console.WriteLine(" Vytvoření ligy pro: Týmovou ligu");
+            DateTime od = new DateTime(2017, 04, 29);
+            DateTime _do = new DateTime(2017, 05, 01);
+        
+            LigaHracuTable.CreateLiga("Hráčská liga", "LigaHráčů", "Žádné", "Probíhající", "100USD", od, _do);
+            LigaTymuTable.CreateLiga("Týmová liga", "LigaTymu", "Žádné", "Probíhající", "100USD", od, _do);
+
+            Console.WriteLine(" ");
+            //Vytvoření zápasů hráčů
+            string pomH1, pomH2;
+            pomH1 = "Keiko";
+            pomH2 = "Lala";
+            if (ZapasyHracuTable.Insert(1, pomH1, pomH2, 16, 14, DateTime.Today))
+            {
+                Console.WriteLine("Zápas hráčů byl vytvořen");
+            }
+
+
+            Console.WriteLine(" ");
+            // Vytvoření zápasů 
+            string pomT1, pomT2;
+            pomT1 = "Alfa";
+            pomT2 = "Lalas";
+
+            if (ZapasyTymuTable.Insert(1, pomT1, pomT2, 16, 14, DateTime.Today))
+            {
+                Console.WriteLine("Zápas týmů byl vytvořen");
+            }
+            Console.WriteLine(" ");
+
+            /* Uprava Přezdívky hráče */
+            string PomCh = "Keiko";
+            string pomCh2 = "Fredy";
+            Console.WriteLine("Přejmenování hráče " + PomCh+" na "+ pomCh2+" bylo úspěšné");
+            HracTable.ChangeName(PomCh, pomCh2);
+            Console.WriteLine("");
+
+            /*Přihlášení hráče do týmu*/
+            string pomhrac = "Fredy";
+            string pomteam = "Alfa";
+            if (TymTable.Insert(pomhrac, pomteam))
+            {
+                Console.WriteLine("Hráč " + pomhrac + " byl úspěšně vložen do týmu " + pomteam);
+            }
+
+            string pomLala = "Lala";
+            string pomLalas = "Lalas";
+            if (TymTable.Insert(pomLala, pomLalas))
+            {
+                Console.WriteLine("Hráč " + pomLala + " byl úspěšně vložen do týmu " + pomLalas);
+            }
+
+            Console.WriteLine(" ");
+            // Přihlašení týmu do ligy
+            Console.WriteLine(" ");
+            Console.WriteLine(" Přihlášení týmu do ligy");
+            TymTable.JoinToLiga("LigaTymu", "Alfa");
+            Console.WriteLine(" ");
+
+            /*Aktualizace pro ligu hracu*/
+            Console.WriteLine("Aktualizace ligy hracu");
+            LigaHracuTable.Update("Žádný", "100000USD", "LigaHracu");
+            Console.WriteLine(" ");
+
+            Console.WriteLine(" ");
+            /*Aktualizace pro ligu tymu*/
+            Console.WriteLine("Aktualizace ligy tymu");
+            LigaTymuTable.Update("Žádné požadavky", "100000USD", "LigaTymu");
+
+
+            /*1) zablokování hráče
+             Vložit pouze jednoho hráče, může být i více ale né se stejným ID
+             Po 2 vložení stejného hráče vyhodí hlášku..
+            */
+            Console.WriteLine("Zablokování hráče");
+            DateTime banod = new DateTime(2017, 04, 29);
+            DateTime banDO = new DateTime(2017, 06, 29);
+            HalaPropadlikuTable.Insert(1, "Ban chlapečku", banod, banDO);
+
+            
+
+
+
+            //Seznamy 
+            /*Seznam hráčů*/
+            Console.WriteLine("Seznam hráčů");
+            Console.WriteLine("{0,-20}{1,-20}{2,-20}{3,-15}", "Nick hráče", "Počet her", "Rank", "Název týmu");
+
+            foreach (tabulkaList h in HracTable.FindPlayer())
+            {
+                Console.WriteLine("{0,-20}{1,-20}{2,-20}{3,-15}",
+                    h.Nick_name, h.P_her, h.Nazev, h.Nazev_tymu);
+            }
+            Console.WriteLine(" ");
+
+            /*Detail hráče se jménem*/
+            Console.WriteLine("Detail hráče");
+            Console.WriteLine("{0,-20}{1,-20}{2,-20}{3,-20}{4,-20}{5,-15}{6,-15}", "Nick hráče", "Počet her", "Počet výher", "Pozice", "Skore", "Rank", "Název týmu");
+            foreach (tabulkaList h in HracTable.DetialHrace("Fredy"))
+            {
+                Console.WriteLine("{0,-20}{1,-20}{2,-20}{3,-20}{4,-20}{5,-15}{6,-15}",
+                    h.Nick_name, h.P_her, h.P_vyher, h.Pozice, h.Skore, h.Nazev, h.Nazev_tymu);
+            }
+            Console.WriteLine(" ");
+
+            /*Seznam ligy hracu*/
+            Console.WriteLine(" ");
+            Console.WriteLine("Seznam ligy hráčů");
+            Console.WriteLine("{0,-20}{1,-20}{2,-20}{3,-20}{4,-15}{5,-15:D}{6,31:D}", "Název ligy", "Požadavek", "Počet hráčů", "Status", "Výhra", "Datum začátku", "Datum konce");
+            Collection<Liga_hracu> lhs = LigaHracuTable.DetialLigy();
+            foreach (Liga_hracu lh in lhs)
+            {
+                Console.WriteLine("{0,-20}{1,-20}{2,-20}{3,-20}{4,-15}{5,-15:D}{6,35:D}",
+                  lh.Nazev_ligy, lh.Pozadavek, lh.Pocet_hracu, lh.Status, lh.Vyhra, lh.Datum_zacatku, lh.Datum_konce);
+            }
+            Console.WriteLine(" ");
+
+            /* Seznam zápasů dle data */
+            Console.WriteLine("Seznam zapasu dle data, pokud není nastavené datum, vypíše všechny zápasy");
+            Console.WriteLine("{0,-10}{1,-10}{2:D}", "Hráč A", "Hráč B", "Datum zápasu");
+            //DateTime Sdatum = new DateTime(2017, 04, 29);
+            Collection<Zapasy_Hracu> pomz = ZapasyHracuTable.SeznamZap();
+            foreach (Zapasy_Hracu zh in pomz)
+            {
+                Console.WriteLine("{0,-10}{1,-10}{2:D}",
+                    zh.Hraca, zh.Hracb, zh.Datum_zapasu);
+            }
+
+            Console.WriteLine(" ");
+
+
+            /* Detail zápasů hráčů*/
+            Console.WriteLine("Detail zapasu hráčů");
+            Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4:D}", "Hráč A", "Hráč B", "Skóre A", "Skóre B", "Datum zápasu");
+            Collection<Zapasy_Hracu> z = ZapasyHracuTable.Detail(1);
+            foreach (Zapasy_Hracu zh in z)
+            {
+                Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4:D}",
+                    zh.Hraca, zh.Hracb, zh.Skorea, zh.Skoreb, zh.Datum_zapasu);
+            }
+            Console.WriteLine(" ");
+
+            /*Seznam ligy Týmů  */
+            Console.WriteLine("Seznam ligy týmů");
+            Console.WriteLine("{0,-20}{1,-20}{2,-20}{3,-20}{4,-15}{5,-15:D}{6,31:D}", "Název ligy", "Požadavek", "Počet týmů", "Status", "Výhra", "Datum začátku", "Datum konce");
+            Collection<Liga_Tymu> lts = LigaTymuTable.DetialLigy();
+            foreach (Liga_Tymu lt in lts)
+            {
+                Console.WriteLine("{0,-20}{1,-20}{2,-20}{3,-20}{4,-15}{5,-15:D}{6,35:D}",
+                  lt.Nazev_ligy, lt.Pozadavek, lt.Poc_tymu, lt.Status, lt.Vyhra, lt.Datum_zacatku, lt.Datum_konce);
+            }
+            Console.WriteLine(" ");
+
+            Console.WriteLine(" ");
+            /* Detail zápasů týmů*/
+            Console.WriteLine("Detail zapasu týmů");
+            Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4:D}", "Tým A", "Tým B", "Skóre A", "Skóre B", "Datum zápasu");
+            Collection<Zapasy_Tymu> pomZT = ZapasyTymuTable.Detail(1);
+            foreach (Zapasy_Tymu zt in pomZT)
+            {
+                Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4:D}",
+                    zt.Tyma, zt.Tymb, zt.Skorea, zt.Skoreb, zt.Datumzapasu);
+            }
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+
+            /* Seznam týmů*/
+            Console.WriteLine("Seznam týmů");
+            Console.WriteLine("{0,-10}", "Název týmu");
+            Collection<Tym> listt = TymTable.SeznamTymu();
+            foreach (Tym zt in listt)
+            {
+                Console.WriteLine("{0,-10}",
+                    zt.Nazev_tymu);
+            }
+            Console.WriteLine("");
+
+            /* Seznam hráčů*/
+
+            Console.WriteLine("");
+            string team = "Alfa";
+            Console.WriteLine("Seznam hráčů v týmu: " + team);
+            Console.WriteLine("{0,-20}", "Nick hráče");
+
+            foreach (hracInteam hit in TymTable.HraciVtymu(team))
+            {
+                Console.WriteLine("{0,-20}",
+                    hit.Nick_name);
+            }
+            Console.WriteLine(" ");
+
+            /*3) Seznam propadliku*/
+            Console.WriteLine("");
+            Console.WriteLine("Seznam propadliku: ");
+            Console.WriteLine("{0,-20}{1,-20}{2,-20:D}{3,36:D}",
+                "Nick hráče", "Popis", "Datum zablokování", "Doba zablokování");
+
+            foreach (HalaSeznam HS in HalaPropadlikuTable.Select())
+            {
+                Console.WriteLine("{0,-20}{1,-20}{2,-20:D}{3,40:D}",
+                    HS.Nick_name, HS.Popis, HS.Datum_zablokovani, HS.Doba_zablokovani);
+            }
+
+            Console.WriteLine("");
+            /*2) Odblokování hráče*/
+            Console.WriteLine("");
+            Console.WriteLine("Odblokovani hrace");
+            HalaPropadlikuTable.ExpiredBan();

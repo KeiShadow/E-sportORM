@@ -1,0 +1,16 @@
+C:\Users\Petr\Documents\GitHub\DAIS-E-sport\E-sportORM\E-sportORM\bin\Debug\E-sportORM.exe.config
+C:\Users\Petr\Documents\GitHub\DAIS-E-sport\E-sportORM\E-sportORM\bin\Debug\E-sportORM.exe
+C:\Users\Petr\Documents\GitHub\DAIS-E-sport\E-sportORM\E-sportORM\bin\Debug\E-sportORM.pdb
+C:\Users\Petr\Documents\GitHub\DAIS-E-sport\E-sportORM\E-sportORM\obj\Debug\E-sportORM.csprojResolveAssemblyReference.cache
+C:\Users\Petr\Documents\GitHub\DAIS-E-sport\E-sportORM\E-sportORM\obj\Debug\E-sportORM.exe
+C:\Users\Petr\Documents\GitHub\DAIS-E-sport\E-sportORM\E-sportORM\obj\Debug\E-sportORM.pdb
+C:\Users\Petr\Documents\Visual Studio 2017\Projects\nog0030_3\E-sportORM\E-sportORM\bin\Debug\E-sportORM.exe.config
+C:\Users\Petr\Documents\Visual Studio 2017\Projects\nog0030_3\E-sportORM\E-sportORM\bin\Debug\E-sportORM.exe
+C:\Users\Petr\Documents\Visual Studio 2017\Projects\nog0030_3\E-sportORM\E-sportORM\bin\Debug\E-sportORM.pdb
+C:\Users\Petr\Documents\Visual Studio 2017\Projects\nog0030_3\E-sportORM\E-sportORM\obj\Debug\E-sportORM.csprojResolveAssemblyReference.cache
+C:\Users\Petr\Documents\Visual Studio 2017\Projects\nog0030_3\E-sportORM\E-sportORM\obj\Debug\E-sportORM.exe
+C:\Users\Petr\Documents\Visual Studio 2017\Projects\nog0030_3\E-sportORM\E-sportORM\obj\Debug\E-sportORM.pdb
+C:\Users\Petr\Documents\Visual Studio 2017\Projects\nog0030_3\E-sportORM\E-sportORM\obj\Debug\E_sportORM.Forms.MainMenu.resources
+C:\Users\Petr\Documents\Visual Studio 2017\Projects\nog0030_3\E-sportORM\E-sportORM\obj\Debug\E-sportORM.csproj.GenerateResource.Cache
+C:\Users\Petr\Documents\Visual Studio 2017\Projects\nog0030_3\E-sportORM\E-sportORM\obj\Debug\E_sportORM.Forms.Registrace.resources
+C:\Users\Petr\Documents\Visual Studio 2017\Projects\nog0030_3\E-sportORM\E-sportORM\obj\Debug\E_sportORM.Forms.Liga.resources
